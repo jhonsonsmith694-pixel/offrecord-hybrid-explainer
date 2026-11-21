@@ -17,12 +17,12 @@
 // ---------------------------------------------------------------------------
 
 export const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyDXz4P9A15AYatFT3wh4yre4t_n_0DD7vc",
+  authDomain: "studio-5334675680-2b32f.firebaseapp.com",
+  projectId: "studio-5334675680-2b32f",
+  storageBucket: "studio-5334675680-2b32f.firebasestorage.app",
+  messagingSenderId: "978251268215",
+  appId: "1:978251268215:web:ef523c047bbaa5ae944672",
   // Optional: reCAPTCHA v3 site key for App Check (from the Firebase
   // console, App Check > Apps > your web app). Leave the placeholder in
   // place for local development — the App Check debug provider is used

@@ -196,21 +196,25 @@ async function initFirebase() {
   // Firebase AI Logic — Gemini Developer API backend.
   ai = getAI(firebaseApp, { backend: new GoogleAIBackend() });
   onDeviceModel = getGenerativeModel(ai, {
-    model: "gemini-2.5-flash",
     mode: InferenceMode.ONLY_ON_DEVICE,
-    systemInstruction: systemPrompt(),
-    generationConfig: {
-      responseMimeType: "application/json",
-      responseSchema: EXPLAIN_SCHEMA,
+    onDeviceParams: {
+      model: "gemini-2.5-flash",
+      systemInstruction: systemPrompt(),
+      generationConfig: {
+        responseMimeType: "application/json",
+        responseSchema: EXPLAIN_SCHEMA,
+      },
     },
   });
   cloudModel = getGenerativeModel(ai, {
-    model: "gemini-2.5-flash",
     mode: InferenceMode.ONLY_IN_CLOUD,
-    systemInstruction: systemPrompt(),
-    generationConfig: {
-      responseMimeType: "application/json",
-      responseSchema: EXPLAIN_SCHEMA,
+    inCloudParams: {
+      model: "gemini-2.5-flash",
+      systemInstruction: systemPrompt(),
+      generationConfig: {
+        responseMimeType: "application/json",
+        responseSchema: EXPLAIN_SCHEMA,
+      },
     },
   });
 
