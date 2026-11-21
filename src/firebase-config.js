@@ -17,12 +17,13 @@
 // ---------------------------------------------------------------------------
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyDXz4P9A15AYatFT3wh4yre4t_n_0DD7vc",
-  authDomain: "studio-5334675680-2b32f.firebaseapp.com",
-  projectId: "studio-5334675680-2b32f",
-  storageBucket: "studio-5334675680-2b32f.firebasestorage.app",
-  messagingSenderId: "978251268215",
-  appId: "1:978251268215:web:ef523c047bbaa5ae944672",
+  apiKey: "AIzaSyBlxGbKweXyeY2mh0zEszFPs2ja0t0ugpE",
+  authDomain: "offrecord-4161f.firebaseapp.com",
+  projectId: "offrecord-4161f",
+  storageBucket: "offrecord-4161f.firebasestorage.app",
+  messagingSenderId: "925243452849",
+  appId: "1:925243452849:web:a4a7cb8449a78b33da2190",
+  measurementId: "G-2YRDQR8MSC",
   // Optional: reCAPTCHA v3 site key for App Check (from the Firebase
   // console, App Check > Apps > your web app). Leave the placeholder in
   // place for local development — the App Check debug provider is used
