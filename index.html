@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="OffRecord explains dense text in plain language — on-device with Gemini Nano when possible, in the cloud when needed. Your text stays private by default."
+    />
+    <title>OffRecord — Private Plain-Language Explainer</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <h1>OffRecord</h1>
+        <p class="tagline">
+          Dense text, explained in plain language — on your device when
+          possible, in the cloud only when needed.
+        </p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section id="setup-banner" class="banner" hidden>
+        <strong>Setup needed.</strong>
+        Firebase is not configured yet. Paste your project's config into
+        <code>src/firebase-config.js</code> (see the README), then reload.
+        The app cannot call the model until then.
+        <p class="debug-token" hidden>
+          App Check debug token:
+          <code id="debug-token"></code> — register it in the Firebase
+          console under Security &gt; App Check &gt; Manage debug tokens.
+        </p>
+      </section>
+
+      <section class="card">
+        <label for="input-text" class="field-label">
+          Paste dense text — a contract clause, terms of service, a medicine
+          leaflet, a policy…
+        </label>
+        <textarea
+          id="input-text"
+          rows="9"
+          placeholder="Paste the text you want explained here…"
+        ></textarea>
+        <div class="row between">
+          <span id="char-count" class="muted">0 characters</span>
+          <span class="samples">
+            Try a sample:
+            <button type="button" data-sample="terms">Terms of service</button>
+            <button type="button" data-sample="medical">Medicine leaflet</button>
+            <button type="button" data-sample="rental">Rental clause</button>
+          </span>
+        </div>
+
+        <div class="controls">
+          <label class="control">
+            Engine
+            <select id="mode">
+              <option value="auto" selected>Auto — best of both</option>
+              <option value="on-device">On-device only</option>
+              <option value="cloud">Cloud only</option>
+            </select>
+          </label>
+          <label class="control check">
+            <input type="checkbox" id="private-toggle" />
+            Private — never send my text to the cloud
+          </label>
+          <button id="explain-btn" type="button" class="primary">
+            Explain it
+          </button>
+        </div>
+
+        <p id="ondevice-status" class="muted">Checking on-device model…</p>
+        <p id="status" class="status" role="status"></p>
+      </section>
+
+      <section id="result" class="card" hidden>
+        <div class="row between">
+          <span id="engine-badge" class="badge" hidden></span>
+          <button id="copy-btn" type="button">Copy summary</button>
+        </div>
+        <p id="result-reason" class="muted"></p>
+        <h2>Plain-language summary</h2>
+        <p id="result-summary"></p>
+        <p id="result-level" class="muted"></p>
+        <div id="result-points-wrap" hidden>
+          <h3>Key points</h3>
+          <ul id="result-points"></ul>
+        </div>
+        <div id="result-watch-wrap" hidden>
+          <h3>⚠️ Watch out for</h3>
+          <ul id="result-watch"></ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>History — stored on this device only</h2>
+        <ul id="history-list" class="history"></ul>
+      </section>
+
+      <section class="card how">
+        <h2>How the hybrid engine works</h2>
+        <ol>
+          <li>
+            <strong>Short text</strong> (up to 2,000 characters by default)
+            runs on <strong>Gemini Nano, on your device</strong> — private,
+            free, and works offline once the model is downloaded.
+          </li>
+          <li>
+            <strong>Long text</strong> goes to <strong>Gemini in the
+            cloud</strong>, which handles long documents better.
+          </li>
+          <li>
+            If Gemini Nano is not available in your browser, the cloud steps
+            in automatically — you always get an answer.
+          </li>
+        </ol>
+        <p class="muted">
+          Built with Firebase AI Logic hybrid inference (on-device Gemini
+          Nano in Chrome + cloud Gemini fallback), Firebase App Check, and
+          Firebase Remote Config. Your text is only sent to the cloud when
+          the cloud engine is used; history never leaves this device.
+        </p>
+      </section>
+    </main>
+
+    <footer class="wrap muted">
+      OffRecord — #BuildHybridAI 2026. Open source (Apache-2.0).
+    </footer>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
